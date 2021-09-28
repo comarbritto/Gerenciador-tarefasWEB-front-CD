@@ -11,5 +11,11 @@ export const ContainerFilter = styled.div`
         justify-content: space-around;
         margin-top: 20px;
 
+        button{ 
+                background: none;
+                border:none;
+
+        }
+
 `
         
