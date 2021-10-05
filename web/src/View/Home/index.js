@@ -1,10 +1,23 @@
 
 import React, {useState} from 'react';
 import * as Styled from './styles';
+
+/* IMAGENS */
+import Imagem from'../../Imgs/filter2.png';
+import futebol from'../../Imgs/futebol.jpg';
+import viagem from'../../Imgs/viagem.png';
+import cinema from'../../Imgs/cinema.png';
+import lanche from'../../Imgs/lanche.jpg';
+import prova from'../../Imgs/prova.jpg';
+import academia from'../../Imgs/academia.jpg';
+import compra from'../../Imgs/compra.jpg';
+import trabalho from'../../Imgs/trabalho.png';
+
+/* COMPONENTES*/
 import Header from '../../Componentes/Header';
 import Footer from '../../Componentes/Footer';
 import Filter from '../../Componentes/Filter';
-import Imagem from'../../Imgs/filter2.png';
+import TaskCard from '../../Componentes/TaskCard';
 
 
 function Home() {
@@ -16,22 +29,35 @@ function Home() {
         <Styled.ContainerFilter>
         
           <button type='button' onClick={() => functionFilter('todos')}> 
-          <Filter title="Todos" img={Imagem} actived={filterActive == 'todos'}/>
+          <Filter title="TODOS" img={Imagem} actived={filterActive ==='todos'}/>
           </button>
          
           <button type='button' onClick={() => functionFilter('hoje')}>
-          <Filter title="HOJE" img={Imagem} actived={filterActive == 'hoje'}/> 
+          <Filter title="HOJE" img={Imagem} actived={filterActive === 'hoje'}/> 
           </button>
 
           <button type='button' onClick={() => functionFilter('semana')}> 
-          <Filter title="SEMANA"img={Imagem} actived={filterActive == 'semana'}/> 
+          <Filter title="SEMANA"img={Imagem} actived={filterActive === 'semana'}/> 
           </button>
           
           <button type='button' onClick={() => functionFilter('mes')}> 
-          <Filter title="MÊS" img={Imagem} actived={filterActive == 'mes'}/>   
+          <Filter title="MÊS" img={Imagem} actived={filterActive === 'mes'}/>   
           </button>
                          
-        </Styled.ContainerFilter>    
+        </Styled.ContainerFilter>  
+
+        <Styled.ContainerCard> 
+        <TaskCard img={futebol} title="Futebol"/>
+        <TaskCard img={viagem} title="Viagem"/>
+        <TaskCard img={cinema} title="Cinema"/>
+        <TaskCard img={lanche} title="Lanche"/>
+        <TaskCard img={prova} title="Prova"/>
+        <TaskCard img={academia} title="Academia"/>
+        <TaskCard img={compra} title="Compra"/>
+        <TaskCard img={trabalho} title="Trabalho"/>
+
+        </Styled.ContainerCard>
+
       <Footer/>
     </Styled.Container>
   )
