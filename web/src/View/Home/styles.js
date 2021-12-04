@@ -5,23 +5,23 @@ export const Container = styled.div`
 `
 
 export const ContainerFilter = styled.div`
-        
         width: 100%;
         display: flex;
         justify-content: space-around;
         margin-top: 20px;
-
-        button{ 
+        button{
                 background: none;
-                border:none;
-
+                border: none;
         }
-
 `
-export const ContainerCard = styled.div`
 
-width: 100%;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
+export const ContainerCard = styled.div`
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        a{
+            text-decoration: none;
+            color: #000;
+        }
 `

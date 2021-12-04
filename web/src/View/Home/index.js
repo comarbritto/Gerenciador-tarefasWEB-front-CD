@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import * as Styled from './styles';
-import api from '../../service/api';
-
+import api from '../../Services/api';
 import {Link} from 'react-router-dom';
+
 
 
 /* IMAGENS */
@@ -12,10 +12,10 @@ import Imagem from '../../Imgs/filter.png';
 
 
 /* COMPONENTES */
-import Header from '../../Componentes/Header';
-import Footer from '../../Componentes/Footer';
-import Filter from '../../Componentes/Filter';
-import TaskCard from '../../Componentes/TaskCard';
+import Header from '../../Components/Header';
+import Footer from '../../Components/Footer';
+import Filter from '../../Components/Filter';
+import TaskCard from '../../Components/TaskCard';
 
 
 
@@ -29,7 +29,7 @@ function Home() {
 
   //função responsável por fazer as requisições para o backend
   async function loadTasks(){
-    await api.get(`/task//filter/${filterActive}/11:11:11:11:11:15`)
+    await api.get(`/task//filter/${filterActive}/11:11:11:11:11:11`)
     .then(response => {
       setTasks(response.data)
     })
@@ -37,26 +37,26 @@ function Home() {
 
   useEffect(() => {
     loadTasks();
-  }, [filterActive])
+  }, [filterActive, loadTasks])
 
   return (
     <Styled.Container>
       <Header />
         <Styled.ContainerFilter>
           <button type='button' onClick={() => functionFilter('all')}>
-          <Filter title="Todos" img={Imagem} actived={filterActive == 'all'}/>
+          <Filter title="Todos" img={Imagem} actived={filterActive === 'all'}/>
           </button>
 
           <button type='button' onClick={() => functionFilter('today')}>
-          <Filter title="Hoje" img={Imagem} actived={filterActive == 'today'}/>
+          <Filter title="Hoje" img={Imagem} actived={filterActive === 'today'}/>
           </button>
 
           <button type='button' onClick={() => functionFilter('week')}>
-          <Filter title="Semana" img={Imagem} actived={filterActive == 'week'}/>
+          <Filter title="Semana" img={Imagem} actived={filterActive === 'week'}/>
           </button>
 
           <button type='button' onClick={() => functionFilter('month')}>
-          <Filter title="Mês" img={Imagem} actived={filterActive == 'month'}/>
+          <Filter title="Mês" img={Imagem} actived={filterActive === 'month'}/>
           </button>
           
          </Styled.ContainerFilter>
